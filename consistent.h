@@ -57,6 +57,14 @@ class EmptyRingException
 {
 };
 
+// HashRing
+/*
+	HashRing主要利用hash记录Server的key，然后再利用Key找到相应的CacheServer;  id=hash(key), id->key
+	不在HashRing的node中直接记录cacheServer
+*/
+
+// 模板类： Node, Data, Hash,  Node相对于Server， Data相对于资源
+// 注意模板类写法
 template <class Node, class Data, class Hash = HASH_NAMESPACE::hash<const char*> >
 class HashRing
 {
